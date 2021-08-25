@@ -1,40 +1,42 @@
 import "../styles.css";
 import { useState } from "react";
+import musicImg from "../assets/music.png";
 
+// song object array
 const songsDB = {
   EDM: [
-    { title: "Eloquent JavaScript", artist: "4/5" },
-    { title: "You Don't Know JS", artist: "3.5/5" }
+    { title: "Titanium", artist: "David Guetta" },
+    { title: "One more Time", artist: "Daft Punk" }
   ],
 
   Rock: [
     {
-      title: "Shiva Trilogy",
-      artist: "5/5"
+      title: "A day in the life",
+      artist: "The Beatles"
     },
     {
-      title: "Harry Potter and the Sorcerer's Stone",
-      artist: "4.5/5"
+      title: "See Emily Play",
+      artist: "Pink Floyd"
     }
   ],
   Techno: [
     {
-      title: "Never Split the Difference",
-      artist: "3.5/5"
+      title: "I wanna go Bang",
+      artist: "Bjarki"
     },
     {
-      title: "Loonshots",
-      artist: "5/5"
+      title: "The Bells",
+      artist: "Jeff Mills"
     }
   ],
   Pop: [
     {
-      title: "Never Split the Difference",
-      artist: "3.5/5"
+      title: "Dynamite",
+      artist: "BTS"
     },
     {
-      title: "Loonshots",
-      artist: "5/5"
+      title: "Watermelon Sugar",
+      artist: "HArry Styles"
     }
   ]
 };
@@ -50,23 +52,29 @@ export default function Songs() {
 
   return (
     <div clasName="container">
-      <div className="img"></div>
-      <h1>My Song Recommendation App</h1>
-      <p>
-        These are my favourite songs. Select a genre of your choice to view the
-        list
+      <div className="center-container">
+        <h1>Song Recommendation App</h1>
+        <div className="img">
+          <img src={musicImg} height="200" alt="music" />
+        </div>
+      </div>
+      <p className="text">
+        These are my favourite songs. <br />
+        Select a genre of your choice to view the list.
       </p>
       <div className="btn-container">
         {Object.keys(songsDB).map((genre) => (
-          <button onClick={() => genreButtonhandler(genre)}>{genre}</button>
+          <button className="button" onClick={() => genreButtonhandler(genre)}>
+            {genre}
+          </button>
         ))}
       </div>
       <div className="song-container">
-        <ul>
+        <ul className="list">
           {songsDB[genre].map((song) => (
-            <li key={song.title}>
-              <div> {song.title} </div>
-              <div> {song.artist} </div>
+            <li key={song.title} className="list-item">
+              <div className="list-heading"> {song.title} </div>
+              <div className="list-artist"> {song.artist} </div>
             </li>
           ))}
         </ul>
