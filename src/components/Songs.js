@@ -1,4 +1,4 @@
-import "../styles.css";
+import "./Songs.css";
 import { useState } from "react";
 import musicImg from "../assets/music.png";
 
